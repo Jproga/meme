@@ -4,7 +4,7 @@ from discord.ext import commands
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='', intents=intents)
+bot = commands.Bot(command_prefix='@', intents=intents)
 
 @bot.event
 async def on_ready():
@@ -12,11 +12,11 @@ async def on_ready():
 
 @bot.command()
 async def hello(ctx):
-    await ctx.send(f'Привет! Я бот {bot.user}!')
+    await ctx.send(f'Салам алейкум! Я лучший бот {bot.user}!')
 
 @bot.command()
-async def heh(ctx, count_heh = 5):
-    await ctx.send("he" * count_heh)
+async def heh(ctx, count_heh = 15):
+    await ctx.send("aha" * count_heh)
 
 
 bot.run("token")
