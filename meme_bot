@@ -1,4 +1,4 @@
-import discord, os, random
+import discord, os, random, requests
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -23,4 +23,32 @@ async def mem_games(ctx):
         picture = discord.File(f)
    # Можем передавать файл как параметр!
     await ctx.send(file=picture)
+    
+
+def get_dog_image_url():    
+    url = 'https://random.dog/woof.json'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+
+@bot.command('dog')
+async def dog(ctx):
+    '''По команде anime вызывает функцию get_dog_image_url'''
+    image_url = get_dog_image_url()
+    await ctx.send(image_url)
+
+def get_duck_image_url():    
+    url = 'https://random-d.uk/api/random'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+
+@bot.command('duck')
+async def duck(ctx):
+    '''По команде duck вызывает функцию get_duck_image_url'''
+    image_url = get_duck_image_url()
+    await ctx.send(image_url)
+
 bot.run("token")
