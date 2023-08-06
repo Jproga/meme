@@ -23,4 +23,4 @@ async def mem_games(ctx):
         picture = discord.File(f)
    # Можем передавать файл как параметр!
     await ctx.send(file=picture)
-bot.run(token)
+bot.run("token")
